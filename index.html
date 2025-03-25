@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montana-Inspired Template</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .header {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .featured-rooms {
+            color: #00b8e6;
+            text-decoration: none;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        .title-section {
+            text-align: center;
+            padding: 0px 0 30px 0;
+        }
+        
+        .title-section h1 {
+            font-size: 36px;
+            font-weight: normal;
+            color: #333;
+        }
+        
+        .rooms-container {
+            display: flex;
+            width: 100%;
+            height: 500px;
+        }
+        
+        .room-card {
+            position: relative;
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        .room-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .room-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 50px 20px 20px 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+        }
+        
+        .price {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .room-name {
+            font-size: 28px;
+        }
+        
+        .book-now {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .navbar {
+            position: absolute;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-letter {
+            background-color: white;
+            color: #212529;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+        
+        .logo-text {
+            color: white;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+        
+        .resort-text {
+            color: white;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links li {
+            position: relative;
+            margin: 0 15px;
+        }
+        
+        .nav-links li:first-child::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            margin-right: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin-left: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .book-btn {
+            background-color: #00a8ff;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        
+        .carousel-item {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .carousel-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(3px);
+        }
+        
+        .carousel-caption {
+            bottom: 35%;
+            text-align: center;
+            z-index: 10;
+        }
+        
+        .carousel-caption h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            letter-spacing: 5px;
+        }
+        
+        .carousel-caption p {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .carousel-control-prev, .carousel-control-next {
+            width: 50px;
+            height: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            opacity: 1;
+        }
+        
+        .carousel-control-prev {
+            left: 20px;
+        }
+        
+        .carousel-control-next {
+            right: 20px;
+        }
+        
+        @media (max-width: 991.98px) {
+            .navbar-center {
+                position: static;
+                transform: none;
+                margin: 10px 0;
+            }
+            
+            .navbar-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .navbar-right {
+                margin-top: 10px;
+            }
+        }
+        .container-custom {
+            display:flex;
+            box-sizing: border-box;
+            align-items:center;
+            gap: 40px;
+            margin: auto;
+            padding-top: 200px;
+            padding-bottom: 250px;
+            flex-direction:row;
+            max-width: 960px;
+        }
+        
+        .images-container {
+            display: flex;
+            position: relative;
+        }
+        
+        .salad-image {
+            width: 260px;
+            height: 360px;
+            object-fit: cover;
+            margin-right: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .toast-image {
+            width: 260px;
+            height: 360px;
+            object-fit: cover;
+            position: relative;
+            top: 80px;
+            z-index: 1;
+        }
+        
+        .text-content {
+            flex: 1;
+            max-width: 500px;
+        }
+        
+        .delicious-food {
+            color: #00a8ff;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 36px;
+            font-weight: normal;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .para-content {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+        
+        .learn-more {
+            display: inline-block;
+            color: #333;
+            text-decoration: none;
+            border-bottom: 1px solid #333;
+            padding-bottom: 2px;
+            font-size: 14px;
+        }
+        .our-offers {
+            text-align: center;
+            color: #00a8ff;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .offer-image {
+            width: 100%;
+            height: 270px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        
+        .offer-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        
+        .offer-features {
+            list-style-type: none;
+            margin-bottom: 30px;
+            padding-left: 0;
+        }
+        
+        .offer-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 14px;
+        }
+        
+        .offer-features li:before {
+            content: "•";
+            color: #555;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        
+        .book-now {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: #00a8ff;
+            border: 1px solid #00a8ff;
+            padding: 12px;
+            margin-top: auto;
+            font-size: 14px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .book-now:hover {
+            background-color: #00a8ff;
+            color: white;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 700px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .location {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .title {
+            font-size: 42px;
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+        
+        .play-button {
+            width: 70px;
+            height: 70px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+        
+        .play-icon {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 12px 0 12px 20px;
+            border-color: transparent transparent transparent #00a8ff;
+            margin-left: 5px;
+        }
+        
+        .youtube-frame {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        
+        .image-gallery {
+            display: flex;
+            width: 100%;
+            height: 250px;
+        }
+        
+        .gallery-image {
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        .gallery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Footer styles */
+        .footer {
+            background-color: #000;
+            color: #fff;
+            padding: 60px 0;
+        }
+        
+        .footer h3 {
+            font-size: 18px;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+        
+        .footer p {
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.5;
+        }
+        
+        .get-direction {
+            display: inline-block;
+            font-size: 14px;
+            color: #ccc;
+            text-decoration: none;
+            border-bottom: 1px solid #ccc;
+            margin-top: 10px;
+            padding-bottom: 2px;
+        }
+        
+        .nav-links a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .newsletter-button {
+            background-color: #00A0E3;
+            color: white;
+            border: none;
+            font-size: 14px;
+        }
+        
+        .newsletter-description {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #ccc;
+        }
+        .reservation-section {
+            padding: 40px 0;
+        }
+        
+        .reservation-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            border: 1px solid #eaeaea;
+            border-radius: 4px;
+        }
+        
+        .reservation-text {
+            font-size: 24px;
+            color: #333;
+            font-weight: 400;
+        }
+        
+        .btn-contact {
+            background-color: #0099ff;
+            color: white;
+            border-radius: 30px;
+            padding: 10px 25px;
+            font-weight: 500;
+            border: none;
+        }
+        
+        .img-showcase {
+            height: 300px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .image-row {
+            margin: 0;
+        }
+        
+        .image-col {
+            padding: 0;
+        }
+
+        .montana-footer {
+            background-color: black;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            padding: 60px 0;
+        }
+
+        .montana-footer-section {
+            margin-bottom: 20px;
+        }
+
+        .montana-footer-heading {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .montana-footer-text {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+
+        .montana-direction-btn {
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 6px 12px;
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .montana-footer-nav {
+            list-style: none;
+            padding: 0;
+        }
+
+        .montana-footer-nav li {
+            margin-bottom: 10px;
+        }
+
+        .montana-footer-nav a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .montana-footer-nav a:hover {
+            color: white;
+        }
+
+        .montana-newsletter-input {
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+        }
+
+        .montana-newsletter-btn {
+            background-color: #0099ff;
+            color: white;
+            border: none;
+        }
+
+        .montana-copyright {
+            background-color: black;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .montana-social-icons {
+            margin-top: 15px;
+        }
+
+        .montana-social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            align-items: center;
+            justify-content: center;
+        }
+        .featured-rooms .card, .offers .card {
+            border: none;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .featured-rooms .card img, .offers .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .about-section, .food-section {
+            text-align: center;
+            padding: 50px 0;
+        }
+        .about-section img, .food-section img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto 20px;
+        }
+        .footer {
+            background: #222;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-container">
+                <!-- Left Navigation Links -->
+                <div class="navbar-left">
+                    <ul class="nav-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Rooms</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a></li>
+                        <li><a href="#">Pages <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Center Logo -->
+                <div class="navbar-center">
+                    <div class="logo-letter">M</div>
+                    <div class="logo-text">Montana</div>
+                    <div class="resort-text">Resort</div>
+                </div>
+                
+                <!-- Right Social Icons and Button -->
+                <div class="navbar-right">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <button class="book-btn">Book A Room</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Carousel -->
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');">
+                <div class="carousel-caption">
+                    <h1>Montana Resort</h1>
+                    <p>Unlock to enjoy the view of Martine</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');">
+                <div class="carousel-caption">
+                    <h1>Montana Resort</h1>
+                    <p>Experience luxury in nature</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');">
+                <div class="carousel-caption">
+                    <h1>Montana Resort</h1>
+                    <p>Your perfect getaway destination</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!--About Us-->
+    <div class="container-fluid p-0">
+        <div class="container-custom">
+            <div class="text-content">
+                <div class="delicious-food">Delicious Food</div>
+                <h1>We Serve Fresh and Delicious Food</h1>
+                <p>Suscipit libero pretium nullam potenti. Interdum, blandit phasellus consectetuer dolor ornare dapibus enim ut tincidunt rhoncus tellus sollicitudin pede nam maecenas, dolor sem. Neque sollicitudin enim. Dapibus lorem feugiat facilisi faucibus et. Rhoncus.</p>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+            <div class="images-container">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Fresh salad" class="salad-image">
+                <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Salmon toast" class="toast-image">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Our Offers -->
+    <div class="container">
+        <div class="our-offers">Our Offers</div>
+        <h1 style="text-align: center;">Ongoing Offers</h1>
+        
+        <div class="row">
+            <!-- Offer 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0">
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Night view of hotel" class="offer-image">
+                    <div class="card-body d-flex flex-column p-0">
+                        <h2 class="offer-title">Up to 35% savings on Club rooms and Suites</h2>
+                        <ul class="offer-features">
+                            <li>Luxaries condition</li>
+                            <li>3 Adults & 2 Children size</li>
+                            <li>Sea view side</li>
+                        </ul>
+                        <a href="#" class="book-now mt-auto">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Offer 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Coastal view" class="offer-image">
+                    <div class="card-body d-flex flex-column p-0">
+                        <h2 class="offer-title">Up to 35% savings on Club rooms and Suites</h2>
+                        <ul class="offer-features">
+                            <li>Luxaries condition</li>
+                            <li>3 Adults & 2 Children size</li>
+                            <li>Sea view side</li>
+                        </ul>
+                        <a href="#" class="book-now mt-auto">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Offer 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0">
+                    <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Mountain view" class="offer-image">
+                    <div class="card-body d-flex flex-column p-0">
+                        <h2 class="offer-title">Up to 35% savings on Club rooms and Suites</h2>
+                        <ul class="offer-features">
+                            <li>Luxaries condition</li>
+                            <li>3 Adults & 2 Children size</li>
+                            <li>Sea view side</li>
+                        </ul>
+                        <a href="#" class="book-now mt-auto">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Video section -->
+    <div class="video-container">
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Montana Sea View" class="thumbnail">
+        <div class="overlay">
+            <div class="location">Montana Sea View</div>
+            <h1 class="title">Relax and Enjoy your Vacation</h1>
+            <div class="play-button" id="playButton">
+                <div class="play-icon"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="youtubeModal" tabindex="-1" aria-labelledby="youtubeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-transparent border-0">
+                <div class="modal-header border-0 p-0">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="ratio ratio-16x9">
+                        <iframe id="youtubeFrame" src="" title="YouTube video" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const playButton = document.getElementById('playButton');
+        const youtubeModal = new bootstrap.Modal(document.getElementById('youtubeModal'));
+        const youtubeFrame = document.getElementById('youtubeFrame');
+        
+        // Replace this with your actual YouTube video ID
+        const youtubeVideoId = 'dQw4w9WgXcQ';
+        
+        playButton.addEventListener('click', () => {
+            youtubeFrame.src = `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1`;
+            youtubeModal.show();
+        });
+        
+        // Reset iframe source when modal is closed
+        document.getElementById('youtubeModal').addEventListener('hidden.bs.modal', function () {
+            youtubeFrame.src = '';
+        });
+    </script>   
+    <!--Food-->
+    <div class="container-fluid p-0">
+        <div class="container-custom">
+            <div class="images-container">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Fresh salad" class="salad-image">
+                <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Salmon toast" class="toast-image">
+            </div>
+            <div class="text-content">
+                <div class="delicious-food">Delicious Food</div>
+                <h1>We Serve Fresh and Delicious Food</h1>
+                <p>Suscipit libero pretium nullam potenti. Interdum, blandit phasellus consectetuer dolor ornare dapibus enim ut tincidunt rhoncus tellus sollicitudin pede nam maecenas, dolor sem. Neque sollicitudin enim. Dapibus lorem feugiat facilisi faucibus et. Rhoncus.</p>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+    <!--rooms for better-->
+    <div class="header">
+        <a href="#" class="featured-rooms">Featured Rooms</a>
+    </div>
+    
+    <div class="title-section">
+        <h1>Choose a Better Room</h1>
+    </div>
+    
+    <div class="rooms-container">
+        <div class="room-card">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Superior Room View" class="room-image">
+            <div class="room-info">
+                <p class="price">From $350/night</p>
+                <h2 class="room-name">Superior Room</h2>
+            </div>
+            <button class="book-now">Book Now</button>
+        </div>
+        
+        <div class="room-card">
+            <img src="https://images.unsplash.com/photo-1517602302552-471fe67acf66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Deluxe Room View" class="room-image">
+            <div class="room-info">
+                <p class="price">From $550/night</p>
+                <h2 class="room-name">Deluxe Room</h2>
+            </div>
+            <button class="book-now">Book Now</button>
+        </div>
+    </div>
+    
+    <div class="rooms-container">
+        <div class="room-card">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Superior Room View" class="room-image">
+            <div class="room-info">
+                <p class="price">From $350/night</p>
+                <h2 class="room-name">Superior Room</h2>
+            </div>
+            <button class="book-now">Book Now</button>
+        </div>
+        
+        <div class="room-card">
+            <img src="https://images.unsplash.com/photo-1517602302552-471fe67acf66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Deluxe Room View" class="room-image">
+            <div class="room-info">
+                <p class="price">From $550/night</p>
+                <h2 class="room-name">Deluxe Room</h2>
+            </div>
+            <button class="book-now">Book Now</button>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Reservation Section -->
+    <section class="reservation-section">
+        <div class="reservation-container">
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <h2 class="reservation-text">For Reservation or Query?</h2>
+                </div>
+                <div class="col-md-5 text-end">
+                    <a href="tel:+10576377478" class="btn btn-contact">+10 576 377 4789</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Image Showcase Section -->
+    <section class="image-showcase">
+        <div class="container-fluid p-0">
+            <div class="row image-row g-0">
+                <div class="col-md image-col">
+                    <img src="https://images.unsplash.com/photo-1560090995-01632a28895b?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixlib=rb-4.0.3&q=80&w=400" alt="Person floating in water" class="img-showcase">
+                </div>
+                <div class="col-md image-col">
+                    <img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixlib=rb-4.0.3&q=80&w=400" alt="Coastal luxury villas" class="img-showcase">
+                </div>
+                <div class="col-md image-col">
+                    <img src="https://images.unsplash.com/photo-1517673400267-0251440c45dc?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixlib=rb-4.0.3&q=80&w=400" alt="White terrace with ocean view" class="img-showcase">
+                </div>
+                <div class="col-md image-col">
+                    <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixlib=rb-4.0.3&q=80&w=400" alt="Infinity pool at sunset" class="img-showcase">
+                </div>
+                <div class="col-md image-col">
+                    <img src="https://images.unsplash.com/photo-1578922846525-52a84e7c5ca1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixlib=rb-4.0.3&q=80&w=400" alt="Wooden deck overlooking turquoise water" class="img-showcase">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="montana-footer">
+        <div class="container">
+            <div class="row">
+                <!-- Address Column -->
+                <div class="col-md-3 montana-footer-section">
+                    <h5 class="montana-footer-heading">Address</h5>
+                    <p class="montana-footer-text">200, Green road, Mongla,<br>New Yor City USA</p>
+                    <a href="#" class="montana-direction-btn">Get Direction</a>
+                </div>
+                
+                <!-- Reservation Column -->
+                <div class="col-md-3 montana-footer-section">
+                    <h5 class="montana-footer-heading">Reservation</h5>
+                    <p class="montana-footer-text">
+                        +10 367 267 2678<br>
+                        reservation@montana.com
+                    </p>
+                </div>
+                
+                <!-- Navigation Column -->
+                <div class="col-md-3 montana-footer-section">
+                    <h5 class="montana-footer-heading">Navigation</h5>
+                    <ul class="montana-footer-nav">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Rooms</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">News</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter Column -->
+                <div class="col-md-3 montana-footer-section">
+                    <h5 class="montana-footer-heading">Newsletter</h5>
+                    <div class="input-group">
+                        <input type="email" class="form-control montana-newsletter-input" placeholder="Enter your mail">
+                        <button class="btn montana-newsletter-btn" type="button">Sign Up</button>
+                    </div>
+                    <p class="montana-footer-text mt-2">Subscribe newsletter to get updates</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Copyright Section -->
+    <div class="montana-copyright">
+        Copyright ©2025 All rights reserved | This template is made with ❤ by Colorlib
+        <div class="montana-social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
